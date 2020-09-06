@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Blog.API</name>
+    </assembly>
+    <members>
+        <member name="M:Blog.API.Controllers.CategoryController.GetCategories">
+            <summary>
+            Returns a list of categories of the Blog application
+            </summary>
+            <returns>List of categories objects</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.CategoryController.GetCategory(System.Int32)">
+            <summary>
+            Returns a category by id
+            </summary>
+            <param name="id">category id</param>
+            <returns>Category object</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.CategoryController.AddCategory(Blog.Models.Post.Category)">
+            <summary>
+            Adds a category in the categories list
+            </summary>
+            <param name="category">CAtegory that will be added in the list</param>
+            <returns>Call the GetCategory method</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.CategoryController.PutCategory(System.Int32,Blog.Models.Post.Category)">
+            <summary>
+            Update a category in the categories list
+            </summary>
+            <param name="id">Category id</param>
+            <param name="category">Category that will be updated in the categories list</param>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.API.Controllers.CategoryController.DeleteCategory(System.Int32)">
+            <summary>
+            Delete a category in the categories list
+            </summary>
+            <param name="id">Category id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.API.Controllers.PostController.GetPosts">
+            <summary>
+            Returns a list of posts of the Blog application
+            </summary>
+            <returns>List of posts objects</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.PostController.GetPost(System.Int32)">
+            <summary>
+            Returns a post by id
+            </summary>
+            <param name="id">post id</param>
+            <returns>Post object</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.PostController.AddPost(Blog.Models.Post.Post)">
+            <summary>
+            Adds a post in the posts list
+            </summary>
+            <param name="post">Post that will be added in the list</param>
+            <returns>Call the GetPost method</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.PostController.PutPost(System.Int32,Blog.Models.Post.Post)">
+            <summary>
+            Update a post in the posts list
+            </summary>
+            <param name="id">Post id</param>
+            <param name="post">Post that will be updated in the posts list</param>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.API.Controllers.PostController.DeletePost(System.Int32)">
+            <summary>
+            Delete a post in the posts list
+            </summary>
+            <param name="id">Post id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.API.Controllers.UserController.GetUsers">
+            <summary>
+            Returns a list of users of the Blog application
+            </summary>
+            <returns>List of users objects</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.UserController.GetUser(System.Int32)">
+            <summary>
+            Returns a user by id
+            </summary>
+            <param name="id">user id</param>
+            <returns>User object</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.UserController.AddUser(Blog.Models.Core.User)">
+            <summary>
+            Adds a user in the users list
+            </summary>
+            <param name="user">User that will be added in the list</param>
+            <returns>Call the GetUser method</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.UserController.PutUser(System.Int32,Blog.Models.Core.User)">
+            <summary>
+            Update a user in the users list
+            </summary>
+            <param name="id">User id</param>
+            <param name="user">User that will be updated in the users list</param>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.API.Controllers.UserController.DeleteUser(System.Int32)">
+            <summary>
+            Delete a user in the users list
+            </summary>
+            <param name="id">User id</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
