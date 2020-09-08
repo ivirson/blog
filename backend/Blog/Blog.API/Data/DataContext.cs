@@ -1,6 +1,7 @@
 ﻿using Blog.Models.Core;
 using Blog.Models.Post;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Blog.API.Data
 {
@@ -15,5 +16,16 @@ namespace Blog.API.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategoriesPosts> CategoriesPosts { get; set; }
+        public DbSet<PostLike> PostLikes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelbuilder)
+        {
+            foreach (var relationship in modelbuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+
+            base.OnModelCreating(modelbuilder);
+        }
     }
 }

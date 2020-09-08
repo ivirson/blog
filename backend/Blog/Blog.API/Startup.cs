@@ -41,7 +41,7 @@ namespace Blog.API
                         Contact = new Microsoft.OpenApi.Models.OpenApiContact
                         {
                             Name = "Ivirson Daltro",
-                            Url = new System.Uri("https://github.com/ivirson")
+                            Url = new System.Uri("https://github.com/ivirson/blog")
                         }
                     });
 

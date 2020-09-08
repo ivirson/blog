@@ -1,5 +1,6 @@
 ﻿using Blog.Models.Core;
 using System;
+using System.Collections.Generic;
 
 namespace Blog.Models.Post
 {
@@ -9,7 +10,7 @@ namespace Blog.Models.Post
         {
             Active = true;
             Date = DateTime.Now;
-            Likes = 0;
+            Likes = new List<PostLike>();
         }
 
         public int Id { get; set; }
@@ -18,7 +19,7 @@ namespace Blog.Models.Post
         public string Content { get; set; }
         public string Image { get; set; }
         public DateTime Date { get; set; }
-        public int Likes { get; set; }
+        public List<PostLike> Likes { get; set; }
         public User User { get; set; }
         public int UserId { get; set; }
         public bool Active { get; set; }

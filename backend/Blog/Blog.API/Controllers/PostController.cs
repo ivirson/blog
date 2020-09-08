@@ -128,6 +128,63 @@ namespace Blog.API.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Increment post likes qty
+        /// </summary>
+        /// <param name="id">post id</param>
+        /// <param name="userId">authenticated user id</param>
+        /// <returns>post after updating likes qty</returns>
+        [HttpPut("like/{id}/{userId}")]
+        [Authorize]
+        public async Task<ActionResult<Post>> LikePost(int id, int userId)
+        {
+            var post = await _context.Posts.FindAsync(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            var hasPostLike = _context.PostLikes.Any(x => x.PostId == id && x.UserId == userId);
+            if (hasPostLike)
+            {
+                return post;
+            }
+
+            var postLike = new PostLike
+            {
+                PostId = id,
+                UserId = userId
+            };
+
+            _context.PostLikes.Add(postLike);
+            await _context.SaveChangesAsync();
+
+            return post;
+        }
+
+        /// <summary>
+        /// Decrement post likes qty
+        /// </summary>
+        /// <param name="id">post id</param>
+        /// <param name="userId">authenticated user id</param>
+        /// <returns>post after updating likes qty</returns>
+        [HttpPut("unlike/{id}/{userId}")]
+        [Authorize]
+        public async Task<ActionResult<Post>> UnlikePost(int id, int userId)
+        {
+            var post = await _context.Posts.FindAsync(id);
+            var postLike = await _context.PostLikes.FirstOrDefaultAsync(x => x.PostId == id && x.UserId == userId);
+            if (post == null || postLike == null)
+            {
+                return NotFound();
+            }
+
+            _context.PostLikes.Remove(postLike);
+            await _context.SaveChangesAsync();
+
+            return post;
+        }
+
         private bool PostExists(int id)
         {
             return _context.Posts.Any(e => e.Id == id);

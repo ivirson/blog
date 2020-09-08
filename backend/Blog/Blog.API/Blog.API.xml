@@ -84,6 +84,22 @@
             <param name="id">Post id</param>
             <returns></returns>
         </member>
+        <member name="M:Blog.API.Controllers.PostController.LikePost(System.Int32,System.Int32)">
+            <summary>
+            Increment post likes qty
+            </summary>
+            <param name="id">post id</param>
+            <param name="userId">authenticated user id</param>
+            <returns>post after updating likes qty</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.PostController.UnlikePost(System.Int32,System.Int32)">
+            <summary>
+            Decrement post likes qty
+            </summary>
+            <param name="id">post id</param>
+            <param name="userId">authenticated user id</param>
+            <returns>post after updating likes qty</returns>
+        </member>
         <member name="M:Blog.API.Controllers.UserController.GetUsers">
             <summary>
             Returns a list of users of the Blog application
