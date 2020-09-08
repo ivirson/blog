@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Blog.API.Data;
 using Blog.Models.Post;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,7 @@ namespace Blog.API.Controllers
         /// <returns>List of posts objects</returns>
         // GET: api/posts
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Post>>> GetPosts()
         {
             return await _context.Posts.Where(x => x.Active).OrderByDescending(x => x.Date).ToListAsync();
@@ -37,6 +39,7 @@ namespace Blog.API.Controllers
         /// <returns>Post object</returns>
         // GET api/posts/5
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<Post>> GetPost(int id)
         {
             var post = await _context.Posts.FindAsync(id);
@@ -56,6 +59,7 @@ namespace Blog.API.Controllers
         /// <returns>Call the GetPost method</returns>
         // POST api/posts
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Post>> AddPost(Post post)
         {
             _context.Posts.Add(post);
@@ -72,6 +76,7 @@ namespace Blog.API.Controllers
         /// <returns></returns>
         // PUT api/posts/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutPost(int id, Post post)
         {
             if (id != post.Id)
@@ -107,6 +112,7 @@ namespace Blog.API.Controllers
         /// <returns></returns>
         // DELETE api/posts/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<Post>> DeletePost(int id)
         {
             var post = await _context.Posts.FindAsync(id);

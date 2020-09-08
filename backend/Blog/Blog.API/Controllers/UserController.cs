@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Blog.API.Data;
 using Blog.Models.Core;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +27,7 @@ namespace Blog.API.Controllers
         /// <returns>List of users objects</returns>
         // GET: api/users
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             return await _context.Users.Where(x => x.Active).OrderBy(x => x.Name).ToListAsync();
@@ -38,6 +40,7 @@ namespace Blog.API.Controllers
         /// <returns>User object</returns>
         // GET api/users/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
@@ -57,6 +60,7 @@ namespace Blog.API.Controllers
         /// <returns>Call the GetUser method</returns>
         // POST api/users
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<User>> AddUser(User user)
         {
             _context.Users.Add(user);
@@ -73,6 +77,7 @@ namespace Blog.API.Controllers
         /// <returns></returns>
         // PUT api/users/5
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
             if (id != user.Id)
@@ -108,6 +113,7 @@ namespace Blog.API.Controllers
         /// <returns></returns>
         // DELETE api/users/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<User>> DeleteUser(int id)
         {
             var user = await _context.Users.FindAsync(id);

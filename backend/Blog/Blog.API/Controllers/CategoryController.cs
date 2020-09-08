@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Blog.API.Data;
 using Blog.Models.Post;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +27,7 @@ namespace Blog.API.Controllers
         /// <returns>List of categories objects</returns>
         // GET: api/categories
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
         {
             return await _context.Categories.Where(x => x.Active).OrderBy(x => x.Name).ToListAsync();
@@ -38,6 +40,7 @@ namespace Blog.API.Controllers
         /// <returns>Category object</returns>
         // GET api/categories/5
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<Category>> GetCategory(int id)
         {
             var category = await _context.Categories.FindAsync(id);
@@ -57,6 +60,7 @@ namespace Blog.API.Controllers
         /// <returns>Call the GetCategory method</returns>
         // POST api/categories
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Category>> AddCategory(Category category)
         {
             _context.Categories.Add(category);
@@ -73,6 +77,7 @@ namespace Blog.API.Controllers
         /// <returns></returns>
         // PUT api/categories/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
             if (id != category.Id)
@@ -108,6 +113,7 @@ namespace Blog.API.Controllers
         /// <returns></returns>
         // DELETE api/categories/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<Category>> DeleteCategory(int id)
         {
             var category = await _context.Categories.FindAsync(id);

@@ -13,13 +13,7 @@ namespace Blog.Models.Core
         public string SurName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public Role Role { get; set; }
+        public string Role { get; set; }
         public bool Active { get; set; }
-    }
-
-    public enum Role
-    {
-        Admin,
-        Editor
     }
 }

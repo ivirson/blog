@@ -39,6 +39,16 @@
             <param name="id">Category id</param>
             <returns></returns>
         </member>
+        <member name="M:Blog.API.Controllers.LoginController.Authenticate(Blog.Models.Core.User)">
+            <summary>
+            Returns a authenticated user from login page
+            </summary>
+            <param name="model">user</param>
+            <returns>
+            1 - Authenticated user
+            2 - Error
+            </returns>
+        </member>
         <member name="M:Blog.API.Controllers.PostController.GetPosts">
             <summary>
             Returns a list of posts of the Blog application
