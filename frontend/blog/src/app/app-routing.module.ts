@@ -1,7 +1,18 @@
+import { PostsComponent } from './posts/posts.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'posts',
+  },
+  {
+    path: 'posts',
+    component: PostsComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
