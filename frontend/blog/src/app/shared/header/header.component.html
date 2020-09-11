@@ -6,13 +6,26 @@
           Premium <app-badge content="CAR"></app-badge>
         </span>
       </div>
-      <div class="col-md-8 d-flex justify-content-center">
+      <div class="col-md-7 d-flex justify-content-center p-0">
         <app-menu-items></app-menu-items>
       </div>
-      <div class="col-md-2 d-flex justify-content-end">
+      <div class="col-md-2 d-flex justify-content-end p-0">
         <button mat-icon-button class="" aria-label="Search button">
           <mat-icon>search</mat-icon>
         </button>
+      </div>
+      <div class="col-md-auto d-flex justify-content-end p-0">
+        <button mat-button [matMenuTriggerFor]="menu">
+          <img class="country-flag" src="./assets/img/{{ defaultLang }}.png" alt="Brazil Flag">
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item class="lang-menu-item" (click)="changeLanguage('pt-br')">
+            <img class="country-flag" src="./assets/img/pt-br.png" alt="Brazil Flag">Português
+          </button>
+          <button mat-menu-item class="lang-menu-item" (click)="changeLanguage('en-us')">
+            <img class="country-flag" src="./assets/img/en-us.png" alt="USA Flag">English
+          </button>
+        </mat-menu>
       </div>
     </div>
   </div>

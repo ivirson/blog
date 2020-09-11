@@ -3,3 +3,14 @@
     background-color: var(--black-dark);
     color: var(--white);
 }
+
+.country-flag {
+    width: 1.5rem;
+    height: auto;
+    margin-right: .5rem;
+}
+
+.lang-menu-item {
+    display: flex;
+    align-items: center;
+}
