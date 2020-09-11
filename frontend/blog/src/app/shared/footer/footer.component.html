@@ -1,0 +1,67 @@
+<mat-toolbar class="footer">
+  <mat-toolbar-row class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <span class="d-flex align-items-center logo">
+            Premium <app-badge content="CAR"></app-badge>
+          </span>
+          <p class="short-description">{{ 'FOOTER.SHORT-DESCRIPTION' | translate }}</p>
+          <p class="footer-title">{{ 'FOOTER.CONTACTS' | translate }}</p>
+          <div class="social">
+            <a href="#" class="social-logo-square">
+              <img class="social-logo" src="./assets/img/socials-logo/facebook.png" alt="Facebook Logo">
+            </a>
+            <a href="#" class="social-logo-square">
+              <img class="social-logo" src="./assets/img/socials-logo/google-plus.png" alt="Google+ Logo">
+            </a>
+            <a href="#" class="social-logo-square">
+              <img class="social-logo" src="./assets/img/socials-logo/instagram.png" alt="Instagram Logo">
+            </a>
+            <a href="#" class="social-logo-square">
+              <img class="social-logo" src="./assets/img/socials-logo/linkedin.png" alt="LinkedIn Logo">
+            </a>
+            <a href="#" class="social-logo-square">
+              <img class="social-logo" src="./assets/img/socials-logo/twitter.png" alt="Twitter Logo">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <p class="footer-title">{{ 'FOOTER.RECENT-POSTS' | translate }}</p>
+          <div *ngFor="let item of posts">
+            <app-footer-post [post]="item"></app-footer-post>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <p class="footer-title">{{ 'FOOTER.NEWSLETTER' | translate }}</p>
+          <form [formGroup]="newsletterForm" (ngSubmit)="submitForm()">
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'FOOTER.NAME-INPUT' | translate }}</mat-label>
+              <input matInput formControlName="name" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'FOOTER.MAIL-INPUT' | translate }}</mat-label>
+              <input matInput formControlName="email" autocomplete="off">
+            </mat-form-field>
+            <button mat-flat-button class="btn-submit">{{ 'FOOTER.SUBSCRIBE' | translate }}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="footer-bottom">
+    <div class="container">
+      <div class="row d-flex justify-content-between">
+        <div class="col-md-6 d-flex align-items-center">
+          <p class="text-small m-0">@2019 Logwork. {{ 'FOOTER.RIGHTS' | translate }}.</p>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end">
+          <app-menu-items></app-menu-items>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

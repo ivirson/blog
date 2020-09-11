@@ -29,7 +29,27 @@ namespace Blog.API.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Post>>> GetPosts()
         {
-            return await _context.Posts.Where(x => x.Active).OrderByDescending(x => x.Date).ToListAsync();
+            var posts = await _context.Posts.Where(x => x.Active)
+                .Include(x => x.User)
+                .OrderByDescending(x => x.Date).ToListAsync();
+
+            return posts;
+        }
+
+        /// <summary>
+        /// Returns a list of 3 latest posts of the Blog application
+        /// </summary>
+        /// <returns>List of posts objects</returns>
+        // GET: api/posts/latest
+        [HttpGet("latest")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<Post>>> GetLatestPosts()
+        {
+            var posts = await _context.Posts.Where(x => x.Active)
+                .Include(x => x.User)
+                .OrderByDescending(x => x.Date).Take(3).ToListAsync();
+
+            return posts;
         }
 
         /// <summary>
@@ -134,6 +154,7 @@ namespace Blog.API.Controllers
         /// <param name="id">post id</param>
         /// <param name="userId">authenticated user id</param>
         /// <returns>post after updating likes qty</returns>
+        // PUT api/posts/like/2/3
         [HttpPut("like/{id}/{userId}")]
         [Authorize]
         public async Task<ActionResult<Post>> LikePost(int id, int userId)
@@ -168,6 +189,7 @@ namespace Blog.API.Controllers
         /// <param name="id">post id</param>
         /// <param name="userId">authenticated user id</param>
         /// <returns>post after updating likes qty</returns>
+        // PUT api/posts/unlike/2/3
         [HttpPut("unlike/{id}/{userId}")]
         [Authorize]
         public async Task<ActionResult<Post>> UnlikePost(int id, int userId)

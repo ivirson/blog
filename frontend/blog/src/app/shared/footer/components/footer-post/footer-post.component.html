@@ -1,0 +1,10 @@
+<div class="row no-gutters post-content">
+  <div class="col-auto">
+    <img class="post-image" src="{{ post.image }}" alt="">
+  </div>
+  <div class="col-7">
+    <p class="post-title">{{ post.title }}</p>
+    <!-- <p class="post-subtitle">{{ post.subtitle }}</p> -->
+    <p class="post-author">{{ post.user?.name }} {{ post.user?.surName }} - {{ post.date | date: 'longDate' }}</p>
+  </div>
+</div>
