@@ -1,0 +1,19 @@
+{
+    "FOOTER": {
+        "RECENT-POSTS": "Recent posts",
+        "NEWSLETTER": "Newsletter",
+        "CONTACTS": "Keep in touch",
+        "SUBSCRIBE": "Subscribe to Newsletter",
+        "NAME-INPUT": "Your name",
+        "MAIL-INPUT": "Your Email address",
+        "RIGHTS": "All Right Reserved",
+        "SHORT-DESCRIPTION": "Short description about the company Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    "MENU": {
+        "ITEM1": "Home",
+        "ITEM2": "Recipes",
+        "ITEM3": "Article",
+        "ITEM4": "Contact",
+        "ITEM5": "Purchase"
+    }
+}

@@ -88,3 +88,25 @@ input.mat-input-element {
 .text-small {
     font-size: .875rem;
 }
+
+.social {
+    display: flex;
+    justify-content: start;
+}
+
+.social-logo-square {
+    width: 2.125rem;
+    height: 2.125rem;
+    border-radius: 3px;
+    background-color: var(--black-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-right: 1rem;
+}
+
+.social-logo {
+    width: 1.125rem;
+    height: 1.125rem;
+}

@@ -13,6 +13,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BadgeComponent } from './badge/badge.component';
 import { FooterPostComponent } from './footer/components/footer-post/footer-post.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { MenuItemsComponent } from './menu-items/menu-items.component';
 
 const material = [
   MatToolbarModule,
@@ -32,12 +34,14 @@ const components = [
 
 @NgModule({
   declarations: [
-    components
+    components,
+    MenuItemsComponent
   ],
   imports: [
     material,
     BrowserModule,
-    CommonModule
+    CommonModule,
+    TranslateModule
   ],
   providers: [],
   exports: [
