@@ -1,3 +1,5 @@
+import { environment } from './../../../environments/environment';
+import { InternationalizationService } from './../../services/internationalization/internationalization.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public defaultLang = environment.defaultLang;
+
+  constructor(public internationalizationService: InternationalizationService) { }
 
   ngOnInit() {
+  }
+
+  public changeLanguage(lang: string) {
+    this.internationalizationService.setDefaultLanguage(lang);
+    this.defaultLang = lang;
   }
 
 }

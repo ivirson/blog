@@ -15,6 +15,7 @@ import { BadgeComponent } from './badge/badge.component';
 import { FooterPostComponent } from './footer/components/footer-post/footer-post.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
+import { MatMenuModule } from '@angular/material';
 
 const material = [
   MatToolbarModule,
@@ -22,7 +23,8 @@ const material = [
   MatButtonModule,
   ReactiveFormsModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatMenuModule
 ];
 
 const components = [
