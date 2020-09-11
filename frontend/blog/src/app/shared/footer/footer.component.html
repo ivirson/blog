@@ -1,0 +1,54 @@
+<mat-toolbar class="footer">
+  <mat-toolbar-row class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <span class="d-flex align-items-center logo">
+            Premium <app-badge content="CAR"></app-badge>
+          </span>
+          <p class="short-description">Short description about the company Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <p class="footer-title">Keep in touch</p>
+        </div>
+
+        <div class="col-md-4">
+          <p class="footer-title">Recent posts</p>
+          <div *ngFor="let item of posts">
+            <app-footer-post [post]="item"></app-footer-post>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <p class="footer-title">Newsletter</p>
+          <form [formGroup]="newsletterForm" (ngSubmit)="submitForm()">
+            <mat-form-field appearance="fill">
+              <mat-label>Your name</mat-label>
+              <input matInput formControlName="name" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Your Email address</mat-label>
+              <input matInput formControlName="email" autocomplete="off">
+            </mat-form-field>
+            <button mat-flat-button class="btn-submit">Subscribe to Newsletter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="footer-bottom">
+    <div class="container">
+      <div class="row d-flex justify-content-between">
+        <div class="col-md-6 d-flex align-items-center">
+          <p class="text-small m-0">@2019 Logwork. All Right Reserved.</p>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end">
+          <button mat-button>Home</button>
+          <button mat-button>Recipes</button>
+          <button mat-button>Article</button>
+          <button mat-button>Contact</button>
+          <button mat-button>Purchase</button>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

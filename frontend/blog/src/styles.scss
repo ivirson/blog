@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/scss/bootstrap-grid.scss';
+* {
+    font-family: 'PT Sans', sans-serif;
+}
+
+html, body { 
+    height: 100%; 
+}
+
+body { 
+    margin: 0; 
+}
+
+:root {
+    --black: #171717;
+    --black-dark: #000000;
+    --black-light: #373737;
+    --black-lighter: #979797;
+    --blue: #4A90E2;
+    --white: #ffffff;
+  }

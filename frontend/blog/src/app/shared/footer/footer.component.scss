@@ -1,0 +1,90 @@
+@import '../../../styles.scss';
+
+.footer {
+    display: flex;
+    align-self: flex-end;
+}
+
+.footer-top {
+    height: 500px;
+    background-color: var(--black);
+    color: var(--white);
+    white-space: unset;
+    padding-top: 5rem;
+}
+
+.logo {
+    margin-bottom: 1.5rem;
+}
+
+.short-description {
+    font-size: .875rem;
+    line-height: 1.375rem;
+    margin-bottom: 4rem;
+}
+
+.footer-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 1.75rem;
+}
+
+.footer-bottom {
+    height: 90px;
+    background-color: var(--black-dark);
+    color: var(--white);
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+    padding: 0;
+}
+
+input.mat-input-element {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: .875rem;
+}
+
+::ng-deep .mat-form-field-wrapper {
+    padding-bottom: .625em;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    border-radius: 3px !important;
+    background-color: var(--black-light);
+    width: 100%;
+    padding: .75rem !important;
+}
+
+::ng-deep .mat-toolbar .mat-form-field-label {
+    font-size: .875rem;
+    color: #AEB3BB;
+}
+
+::ng-deep .mat-form-field-infix {
+    border-top: none;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+    top: -.3em;
+}
+
+::ng-deep .mat-toolbar .mat-form-field-underline {
+    display: none;
+}
+
+.btn-submit {
+    background-color: var(--black-dark);
+    color: var(--white);
+    height: 3rem;
+    width: 100%;
+}
+
+.text-small {
+    font-size: .875rem;
+}

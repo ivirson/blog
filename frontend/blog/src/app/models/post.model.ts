@@ -9,7 +9,7 @@ export interface Post {
     image?: string;
     date: Date;
     likes?: Array<PostLike>;
-    User?: User;
+    user?: User;
     userId: number;
     active: boolean;
 }

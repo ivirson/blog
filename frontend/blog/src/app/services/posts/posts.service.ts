@@ -16,4 +16,8 @@ export class PostsService {
   public getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(this.url);
   }
+
+  public getLatestPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.url + '/latest');
+  }
 }

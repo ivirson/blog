@@ -55,6 +55,12 @@
             </summary>
             <returns>List of posts objects</returns>
         </member>
+        <member name="M:Blog.API.Controllers.PostController.GetLatestPosts">
+            <summary>
+            Returns a list of 3 latest posts of the Blog application
+            </summary>
+            <returns>List of posts objects</returns>
+        </member>
         <member name="M:Blog.API.Controllers.PostController.GetPost(System.Int32)">
             <summary>
             Returns a post by id
