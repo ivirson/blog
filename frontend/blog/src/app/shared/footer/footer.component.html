@@ -29,7 +29,7 @@
 
         <div class="col-md-4">
           <p class="footer-title">{{ 'FOOTER.RECENT-POSTS' | translate }}</p>
-          <div *ngFor="let item of posts">
+          <div *ngFor="let item of latestPosts">
             <app-footer-post [post]="item"></app-footer-post>
           </div>
         </div>

@@ -1,10 +1,10 @@
 import { createSelector } from '@ngrx/store';
 
-export const postsSelector = (state: any) => state.posts;
+export const postsSelector = (state: any) => state;
 
 export const selectPosts = createSelector(
     postsSelector,
-    state => state.posts
+    state => state.post
 );
 
 export const selectPostsError = createSelector(
@@ -19,7 +19,7 @@ export const selectPostsSuccess = createSelector(
 
 export const selectLatestPosts = createSelector(
     postsSelector,
-    state => state
+    state => state.post
 );
 
 export const selectLatestPostsError = createSelector(
