@@ -1,7 +1,13 @@
+import { selectLatestPosts } from './../../core/posts/posts.selectors';
+import { AppState } from './../../core/index';
+import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { PostsService } from 'src/app/services/posts/posts.service';
 import { Post } from 'src/app/models/post.model';
 import { FormControl, FormGroup } from '@angular/forms';
+import * as fromPosts from './../../core/posts';
+import { takeUntil } from 'rxjs/operators';
+import { Subject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-footer',
@@ -10,8 +16,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class FooterComponent implements OnInit {
-
-  public posts: Array<Post> = new Array<Post>();
+  protected ngUnsubscribe: Subject<any> = new Subject();
+  public posts: Array<Post>;
 
   newsletterForm = new FormGroup({
     name: new FormControl(''),
@@ -19,7 +25,7 @@ export class FooterComponent implements OnInit {
   });
 
   constructor(
-    private postsService: PostsService
+    private store$: Store<AppState>
   ) {}
 
   ngOnInit() {
@@ -27,9 +33,12 @@ export class FooterComponent implements OnInit {
   }
 
   public getLatestPosts() {
-    return this.postsService.getLatestPosts().subscribe((res: Array<Post>) => {
-      this.posts = res;
-    });
+    this.store$.dispatch(new fromPosts.actions.GetLatestPosts());
+    this.store$.select(selectLatestPosts).subscribe(
+      res => {
+        this.posts = res.latestPosts;
+      }
+    );
   }
 
   public submitForm() {
