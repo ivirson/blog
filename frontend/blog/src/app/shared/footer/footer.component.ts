@@ -16,8 +16,7 @@ import { Subject, Observable } from 'rxjs';
 })
 
 export class FooterComponent implements OnInit {
-  protected ngUnsubscribe: Subject<any> = new Subject();
-  public latestPosts: Array<Post>;
+  public latestPosts: Post[];
 
   newsletterForm = new FormGroup({
     name: new FormControl(''),
@@ -33,10 +32,10 @@ export class FooterComponent implements OnInit {
   }
 
   public getLatestPosts() {
-    this.store$.dispatch(new fromPosts.actions.GetLatestPosts());
+    this.store$.dispatch(new fromPosts.actions.GetLatestPosts(3));
     this.store$.select(selectLatestPosts).subscribe(
       res => {
-        this.latestPosts = res.latestPosts;
+        this.latestPosts = res;
       }
     );
   }

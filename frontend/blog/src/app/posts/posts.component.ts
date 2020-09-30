@@ -9,7 +9,7 @@ import { PostsService } from '../services/posts/posts.service';
 })
 export class PostsComponent implements OnInit {
 
-  public posts: Array<Post> = [];
+  public posts: Post[] = [];
 
   constructor(private postsService: PostsService) { }
 
@@ -18,7 +18,7 @@ export class PostsComponent implements OnInit {
   }
 
   public getPosts() {
-    return this.postsService.getPosts().subscribe((res: Array<Post>) => {
+    return this.postsService.getPosts().subscribe((res: Post[]) => {
       this.posts = res;
     });
   }

@@ -1,0 +1,7 @@
+<div class="highlight-container" [ngStyle]="{background: 'url(' + post.image + ')'}">
+  <div class="post-category">
+    <app-badge [content]="post.category?.name.toUpperCase()"></app-badge>
+  </div>
+  <div class="post-author">{{ post.user?.name }} {{ post.user?.surName }} - {{ post.date | date: 'longDate' }}</div>
+  <div class="post-title">{{ post.title }}</div>
+</div>

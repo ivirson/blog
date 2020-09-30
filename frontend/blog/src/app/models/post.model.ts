@@ -1,3 +1,4 @@
+import { Category } from './category.model';
 import { PostLike } from './post-like.model';
 import { User } from './user.model';
 
@@ -12,4 +13,6 @@ export interface Post {
     user?: User;
     userId: number;
     active: boolean;
+    category?: Category;
+    categoryId: number;
 }

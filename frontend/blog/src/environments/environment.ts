@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   defaultLang: 'pt-br',
-  apiRootUrl: 'https://localhost:44343/api/'
+  apiRootUrl: 'https://localhost:44343/api'
 };
 
 /*

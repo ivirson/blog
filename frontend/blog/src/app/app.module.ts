@@ -16,6 +16,8 @@ import { StoreModule } from '@ngrx/store';
 import { postsReducer } from './core/posts/posts.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HighlightsPostsComponent } from './home/components/highlights-posts/highlights-posts.component';
+import { HomeComponent } from './home/home/home.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -24,7 +26,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
+    PostsComponent,
+    HighlightsPostsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
