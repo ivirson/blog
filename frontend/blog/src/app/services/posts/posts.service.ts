@@ -13,10 +13,12 @@ export class PostsService {
   constructor(private http: HttpClient) { }
 
   public getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(environment.apiRootUrl + 'posts');
+    const endpoint = `${environment.apiRootUrl}/posts`;
+    return this.http.get<Post[]>(endpoint);
   }
 
-  public getLatestPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(environment.apiRootUrl + 'posts/latest');
+  public getLatestPosts(qty: number): Observable<Post[]> {
+    const endpoint = `${environment.apiRootUrl}/posts/latest/${qty}`;
+    return this.http.get<Post[]>(endpoint);
   }
 }

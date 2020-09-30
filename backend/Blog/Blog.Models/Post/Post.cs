@@ -22,6 +22,8 @@ namespace Blog.Models.Post
         public List<PostLike> Likes { get; set; }
         public User User { get; set; }
         public int UserId { get; set; }
+        public Category Category { get; set; }
+        public int CategoryId { get; set; }
         public bool Active { get; set; }
     }
 }

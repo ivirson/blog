@@ -6,7 +6,8 @@ export enum ActionTypes {
     GET_POSTS_ERROR = '[POSTS] Get Posts Error',
     GET_LATEST_POSTS = '[POSTS] Get Latest Posts',
     GET_LATEST_POSTS_SUCCESS = '[POSTS] Get Latest Posts Success',
-    GET_LATEST_POSTS_ERROR = '[POSTS] Get Latest Posts Error'
+    GET_HIGHLIGHT_POSTS = '[POSTS] Get Highlight Posts',
+    GET_HIGHLIGHT_POSTS_SUCCESS = '[POSTS] Get Highlight Posts Success'
 }
 
 export class GetPosts implements Action {
@@ -34,8 +35,13 @@ export class GetLatestPostsSuccess implements Action {
     constructor(public payload: any) {}
 }
 
-export class GetLatestPostsError implements Action {
-    readonly type = ActionTypes.GET_LATEST_POSTS_ERROR;
+export class GetHighlightPosts implements Action {
+    readonly type = ActionTypes.GET_HIGHLIGHT_POSTS;
+    constructor(public payload?: any) {}
+}
+
+export class GetHighlightPostsSuccess implements Action {
+    readonly type = ActionTypes.GET_HIGHLIGHT_POSTS_SUCCESS;
     constructor(public payload: any) {}
 }
 
@@ -45,4 +51,5 @@ export type PostsActions =
     | GetPostsError
     | GetLatestPosts
     | GetLatestPostsSuccess
-    | GetLatestPostsError;
+    | GetHighlightPosts
+    | GetHighlightPostsSuccess;

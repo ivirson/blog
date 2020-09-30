@@ -31,6 +31,7 @@ namespace Blog.API.Controllers
         {
             var posts = await _context.Posts.Where(x => x.Active)
                 .Include(x => x.User)
+                .Include(x => x.Category)
                 .OrderByDescending(x => x.Date).ToListAsync();
 
             return posts;
@@ -39,15 +40,17 @@ namespace Blog.API.Controllers
         /// <summary>
         /// Returns a list of 3 latest posts of the Blog application
         /// </summary>
+        /// <param name="qty">posts quantity</param>
         /// <returns>List of posts objects</returns>
-        // GET: api/posts/latest
-        [HttpGet("latest")]
+        // GET: api/posts/latest/5
+        [HttpGet("latest/{qty}")]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<Post>>> GetLatestPosts()
+        public async Task<ActionResult<IEnumerable<Post>>> GetLatestPosts(int qty)
         {
             var posts = await _context.Posts.Where(x => x.Active)
                 .Include(x => x.User)
-                .OrderByDescending(x => x.Date).Take(3).ToListAsync();
+                .Include(x => x.Category)
+                .OrderByDescending(x => x.Date).Take(qty).ToListAsync();
 
             return posts;
         }

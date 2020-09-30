@@ -2,14 +2,18 @@ import { Post } from 'src/app/models/post.model';
 import { ActionTypes, PostsActions } from './posts.actions';
 
 export interface PostsState {
-    posts: Array<Post> | null;
-    latestPosts: Array<Post> | null;
+    posts: Post[] | null;
+    latestPosts: Post[] | null;
+    highlightPosts: Post[] | null;
+    loading: boolean;
     error: any;
 }
 
 export const postsState: PostsState = {
     posts: null,
     latestPosts: null,
+    highlightPosts: null,
+    loading: false,
     error: null
 };
 
@@ -18,48 +22,60 @@ export function postsReducer(state = postsState, action: PostsActions) {
         case ActionTypes.GET_POSTS:
         {
             return {
-                ...state,
-                posts: action.payload
+              ...state,
+              loading: true
             };
         }
 
         case ActionTypes.GET_POSTS_SUCCESS:
         {
             return {
-                ...state,
-                posts: action.payload
+              ...state,
+              loading: false,
+              posts: action.payload
             };
         }
 
         case ActionTypes.GET_POSTS_ERROR:
         {
             return {
-                ...state,
-                error: action.payload
+              ...state,
+              loading: false,
+              error: action.payload
             };
         }
 
         case ActionTypes.GET_LATEST_POSTS:
         {
             return {
-                ...state,
-                latestPosts: { ...action.payload }
+              ...state,
+              loading: true
             };
         }
 
         case ActionTypes.GET_LATEST_POSTS_SUCCESS:
         {
             return {
-                ...state,
-                latestPosts: action.payload
+              ...state,
+              loading: false,
+              latestPosts: action.payload
             };
         }
 
-        case ActionTypes.GET_LATEST_POSTS_ERROR:
+        case ActionTypes.GET_HIGHLIGHT_POSTS:
         {
             return {
-                ...state,
-                error: action.payload
+              ...state,
+              loading: true
+            };
+        }
+
+        case ActionTypes.GET_HIGHLIGHT_POSTS_SUCCESS:
+        {
+            return {
+              ...state,
+              loading: false,
+              highlightPosts: action.payload
             };
         }
 

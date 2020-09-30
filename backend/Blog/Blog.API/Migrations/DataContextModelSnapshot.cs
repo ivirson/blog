@@ -49,28 +49,6 @@ namespace Blog.API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Blog.Models.Post.CategoriesPosts", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PostId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("PostId");
-
-                    b.ToTable("CategoriesPosts");
-                });
-
             modelBuilder.Entity("Blog.Models.Post.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -105,6 +83,9 @@ namespace Blog.API.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
@@ -124,6 +105,8 @@ namespace Blog.API.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("UserId");
 
@@ -152,7 +135,7 @@ namespace Blog.API.Migrations
                     b.ToTable("PostLikes");
                 });
 
-            modelBuilder.Entity("Blog.Models.Post.CategoriesPosts", b =>
+            modelBuilder.Entity("Blog.Models.Post.Post", b =>
                 {
                     b.HasOne("Blog.Models.Post.Category", "Category")
                         .WithMany()
@@ -160,15 +143,6 @@ namespace Blog.API.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Blog.Models.Post.Post", "Post")
-                        .WithMany()
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Blog.Models.Post.Post", b =>
-                {
                     b.HasOne("Blog.Models.Core.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")

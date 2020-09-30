@@ -22,7 +22,7 @@ export class PostsEffects {
         map((response: any) => {
           return [new actions.GetLatestPostsSuccess(response)];
         }),
-        catchError(err => of(new actions.GetLatestPostsError(err)))
+        catchError(err => of(new actions.GetPostsError(err)))
       )
     )
   );
@@ -30,12 +30,25 @@ export class PostsEffects {
   @Effect()
   getLatestPostsAction = this.actions$.pipe(
     ofType<actions.GetLatestPosts>(actions.ActionTypes.GET_LATEST_POSTS),
-    switchMap(() =>
-      this.postsService.getLatestPosts().pipe(
+    switchMap(action =>
+      this.postsService.getLatestPosts(action.payload).pipe(
         switchMap((response: any) => {
-          return [new actions.GetLatestPostsSuccess(response)];
+          return of(new actions.GetLatestPostsSuccess(response));
         }),
-        catchError(err => of(new actions.GetLatestPostsError(err)))
+        catchError(err => of(new actions.GetPostsError(err)))
+      )
+    )
+  );
+
+  @Effect()
+  getHighlightPostsAction = this.actions$.pipe(
+    ofType<actions.GetHighlightPosts>(actions.ActionTypes.GET_HIGHLIGHT_POSTS),
+    switchMap(action =>
+      this.postsService.getLatestPosts(action.payload).pipe(
+        switchMap((response: any) => {
+          return of(new actions.GetHighlightPostsSuccess(response));
+        }),
+        catchError(err => of(new actions.GetPostsError(err)))
       )
     )
   );
