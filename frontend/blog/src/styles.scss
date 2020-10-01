@@ -19,6 +19,7 @@ body {
     --blue: #4A90E2;
     --white: #ffffff;
     --gray: #CECECE;
+    --gray-dark: #666666;
   }
 
   .post-title {
@@ -31,4 +32,8 @@ body {
       font-size: .875rem;
       font-style: italic;
       color: var(--gray);
+  }
+
+  .color-black {
+    color: var(--black);
   }

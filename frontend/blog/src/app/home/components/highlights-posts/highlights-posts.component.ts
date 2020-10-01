@@ -1,6 +1,6 @@
 import { Post } from 'src/app/models/post.model';
-import { HighLightPost } from './../../../models/highlight-post.model';
 import { Component, Input, OnInit } from '@angular/core';
+import { PostSize } from 'src/app/constants/post-size.enum';
 
 @Component({
   selector: 'app-highlights-posts',
@@ -9,8 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HighlightsPostsComponent implements OnInit {
 
-  // @Input() public post: HighLightPost;
   @Input() public post: Post;
+  @Input() public postSize: PostSize = PostSize.Small;
 
   constructor() { }
 

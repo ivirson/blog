@@ -1,7 +1,12 @@
-<div class="highlight-container" [ngStyle]="{background: 'url(' + post.image + ')'}">
-  <div class="post-category">
-    <app-badge [content]="post.category?.name.toUpperCase()"></app-badge>
+<div class="card highlight-container"
+     [ngClass]="{
+       'highlight-container-small': postSize === 'S',
+       'highlight-container-large': postSize === 'L'
+      }"
+     [ngStyle]="{'background-image': 'url(' + post.image + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover'}">
+  <app-badge [content]="post.category?.name.toUpperCase()"></app-badge>
+  <div class="post-info">
+    <div class="post-author">{{ post.user?.name }} {{ post.user?.surName }} - {{ post.date | date: 'longDate' }}</div>
+    <div class="post-title">{{ post.title }}</div>
   </div>
-  <div class="post-author">{{ post.user?.name }} {{ post.user?.surName }} - {{ post.date | date: 'longDate' }}</div>
-  <div class="post-title">{{ post.title }}</div>
 </div>
