@@ -12,7 +12,7 @@ export enum ActionTypes {
 
 export class GetPosts implements Action {
     readonly type = ActionTypes.GET_POSTS;
-    constructor(public payload: any) {}
+    constructor() {}
 }
 
 export class GetPostsSuccess implements Action {

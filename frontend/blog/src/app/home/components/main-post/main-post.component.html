@@ -1,0 +1,11 @@
+<div class="card mb-4">
+  <div class="post-image"
+       [ngStyle]="{'background-image': 'url(' + post?.image + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover'}">
+  </div>
+  <div class="post-content-container">
+    <app-badge [content]="post.category?.name"></app-badge>
+    <div class="post-title">{{ post.title }}</div>
+    <div class="post-author">{{ post.user.name }} {{ post.user.surName }} - {{ post.date | date: 'longDate' }}</div>
+    <div class="post-content">{{ postContent }}</div>
+  </div>
+</div>

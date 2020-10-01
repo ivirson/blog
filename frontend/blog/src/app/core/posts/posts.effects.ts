@@ -19,8 +19,8 @@ export class PostsEffects {
     ofType<actions.GetPosts>(actions.ActionTypes.GET_POSTS),
     switchMap(() =>
       this.postsService.getPosts().pipe(
-        map((response: any) => {
-          return [new actions.GetLatestPostsSuccess(response)];
+        switchMap((response: any) => {
+          return of(new actions.GetPostsSuccess(response));
         }),
         catchError(err => of(new actions.GetPostsError(err)))
       )

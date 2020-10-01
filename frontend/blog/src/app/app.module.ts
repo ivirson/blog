@@ -18,6 +18,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HighlightsPostsComponent } from './home/components/highlights-posts/highlights-posts.component';
 import { HomeComponent } from './home/home/home.component';
+import { MainPostComponent } from './home/components/main-post/main-post.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -28,7 +29,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     PostsComponent,
     HighlightsPostsComponent,
-    HomeComponent
+    HomeComponent,
+    MainPostComponent
   ],
   imports: [
     BrowserModule,
