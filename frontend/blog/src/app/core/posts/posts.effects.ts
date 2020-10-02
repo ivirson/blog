@@ -1,6 +1,5 @@
-import { Action } from '@ngrx/store';
 import { Effect, ofType, Actions } from '@ngrx/effects';
-import { switchMap, map, catchError, mergeMap } from 'rxjs/operators';
+import { switchMap, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { PostsService } from 'src/app/services/posts/posts.service';
 import { of } from 'rxjs';

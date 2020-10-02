@@ -55,7 +55,7 @@ input.mat-input-element {
 }
 
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
-    border-radius: 3px !important;
+    border-radius: 4px !important;
     background-color: var(--black-light);
     width: 100%;
     padding: .75rem !important;
@@ -97,7 +97,7 @@ input.mat-input-element {
 .social-logo-square {
     width: 2.125rem;
     height: 2.125rem;
-    border-radius: 3px;
+    border-radius: 4px;
     background-color: var(--black-light);
     display: flex;
     justify-content: center;

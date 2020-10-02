@@ -19,6 +19,7 @@ namespace Blog.Models.Core
         public string Password { get; set; }
         public List<PostLike> PostLikes { get; set; }
         public string Role { get; set; }
+        public string Image { get; set; }
         public bool Active { get; set; }
     }
 }

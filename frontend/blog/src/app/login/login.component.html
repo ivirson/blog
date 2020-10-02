@@ -1,0 +1,19 @@
+<div class="login-container">
+  <div class="login-form">
+    <p class="login-title d-flex justify-content-center">{{ 'LOGIN.TITLE' | translate }}</p>
+    <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ 'LOGIN.USER-INPUT' | translate }}</mat-label>
+        <input matInput formControlName="email" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>{{ 'LOGIN.PASSWORD-INPUT' | translate }}</mat-label>
+        <input matInput formControlName="password" autocomplete="off" type="password">
+      </mat-form-field>
+      <button mat-flat-button class="btn-submit">{{ 'LOGIN.SUBMIT' | translate }}</button>
+      <div *ngIf="error$">
+        <app-alert-message [error]="error$"></app-alert-message>
+      </div>
+    </form>
+  </div>
+</div>

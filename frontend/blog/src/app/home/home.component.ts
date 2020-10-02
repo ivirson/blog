@@ -1,10 +1,9 @@
 import { Post } from 'src/app/models/post.model';
-import { selectLatestPosts, selectHighlightPosts, selectPosts } from './../../core/posts/posts.selectors';
-import { AppState } from './../../core/index';
+import { selectHighlightPosts, selectPosts } from './../core/posts/posts.selectors';
+import { AppState } from './../core/index';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
-import * as fromPosts from './../../core/posts';
-import { first } from 'rxjs/operators';
+import * as fromPosts from './../core/posts';
 
 @Component({
   selector: 'app-home',

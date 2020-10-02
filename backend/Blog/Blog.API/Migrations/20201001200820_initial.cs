@@ -16,6 +16,7 @@ namespace Blog.API.Migrations
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
+                    Color = table.Column<string>(nullable: true),
                     Active = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -34,6 +35,7 @@ namespace Blog.API.Migrations
                     Email = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
                     Role = table.Column<string>(nullable: true),
+                    Image = table.Column<string>(nullable: true),
                     Active = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
