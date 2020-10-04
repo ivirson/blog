@@ -16,6 +16,7 @@ import { FooterPostComponent } from './footer/components/footer-post/footer-post
 import { TranslateModule } from '@ngx-translate/core';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { MatMenuModule } from '@angular/material';
+import { AlertMessageComponent } from './alert-message/alert-message.component';
 
 const material = [
   MatToolbarModule,
@@ -31,13 +32,14 @@ const components = [
     HeaderComponent,
     FooterComponent,
     BadgeComponent,
-    FooterPostComponent
+    FooterPostComponent,
+    MenuItemsComponent,
+    AlertMessageComponent
 ];
 
 @NgModule({
   declarations: [
-    components,
-    MenuItemsComponent
+    components
   ],
   imports: [
     material,

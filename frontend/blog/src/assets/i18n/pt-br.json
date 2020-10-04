@@ -1,19 +1,25 @@
 {
-    "FOOTER": {
-        "RECENT-POSTS": "Últimas postagens",
-        "NEWSLETTER": "Boletim de notícias",
-        "CONTACTS": "Mantenha contato",
-        "SUBSCRIBE": "Inscreva-se",
-        "NAME-INPUT": "Seu nome",
-        "MAIL-INPUT": "Seu Email",
-        "RIGHTS": "Todos os direitos reservados",
-        "SHORT-DESCRIPTION": "Breve descrição sobre a empresa Lorem Ipsum é simplesmente um texto fictício da indústria de impressão e composição."
-    },
-    "MENU": {
-        "ITEM1": "Página inicial",
-        "ITEM2": "Receitas",
-        "ITEM3": "Artigos",
-        "ITEM4": "Contato",
-        "ITEM5": "Comprar"
-    }
+  "LOGIN": {
+    "TITLE": "Entrar",
+    "USER-INPUT": "Usuário",
+    "PASSWORD-INPUT": "Senha",
+    "SUBMIT": "Entrar"
+  },
+  "FOOTER": {
+    "RECENT-POSTS": "Últimas postagens",
+    "NEWSLETTER": "Boletim de notícias",
+    "CONTACTS": "Mantenha contato",
+    "SUBSCRIBE": "Inscreva-se",
+    "NAME-INPUT": "Seu nome",
+    "MAIL-INPUT": "Seu Email",
+    "RIGHTS": "Todos os direitos reservados",
+    "SHORT-DESCRIPTION": "Breve descrição sobre a empresa Lorem Ipsum é simplesmente um texto fictício da indústria de impressão e composição."
+  },
+  "MENU": {
+    "ITEM1": "Página inicial",
+    "ITEM2": "Receitas",
+    "ITEM3": "Artigos",
+    "ITEM4": "Contato",
+    "ITEM5": "Comprar"
+  }
 }

@@ -16,6 +16,8 @@ export class FooterPostComponent implements OnInit {
   ngOnInit() {
     if (this.post && this.post.title.length > 50) {
       this.postTitle = `${this.post.title.substring(0, 50)}...`;
+    } else {
+      this.postTitle = this.post.title;
     }
   }
 

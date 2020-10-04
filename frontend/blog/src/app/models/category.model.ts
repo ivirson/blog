@@ -4,4 +4,5 @@ export interface Category {
     description: string;
     image?: string;
     active: boolean;
+    color?: string;
 }
