@@ -1,0 +1,27 @@
+.author-image {
+  border-radius: 4px;
+  height: 12.5rem;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.author-info {
+  margin-bottom: 3rem;
+}
+
+.author-name {
+  font-size: .9375rem;
+  font-weight: bold;
+  color: var(--black);
+  margin-bottom: .5rem;
+}
+
+.author-title {
+  color:var(--gray-dark);
+  margin-bottom: .875rem;
+}
+
+.author-biography {
+  color:var(--gray-dark);
+  margin-bottom: 1.25rem;
+}

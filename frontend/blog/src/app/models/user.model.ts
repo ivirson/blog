@@ -8,5 +8,8 @@ export interface User {
     password: string;
     postLikes: Array<PostLike>;
     role: string;
+    image: string;
+    biography: string;
+    title: string;
     active: boolean;
 }

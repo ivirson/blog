@@ -1,7 +1,7 @@
 import { AppState } from './../index';
 import { createSelector } from '@ngrx/store';
 
-export const loginSelector = (state: AppState) => state.login;
+export const loginSelector = (state: AppState) => state.user;
 
 export const selectUser = createSelector(
   loginSelector,

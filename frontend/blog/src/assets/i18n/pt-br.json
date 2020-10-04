@@ -21,5 +21,9 @@
     "ITEM3": "Artigos",
     "ITEM4": "Contato",
     "ITEM5": "Comprar"
+  },
+  "HOME": {
+    "POPULAR-POSTS": "Postagens populares",
+    "AUTHOR-SEE-MORE": "Mais sobre o autor"
   }
 }

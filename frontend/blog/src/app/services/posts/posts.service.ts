@@ -21,4 +21,9 @@ export class PostsService {
     const endpoint = `${environment.apiRootUrl}/posts/latest/${qty}`;
     return this.http.get<Post[]>(endpoint);
   }
+
+  public getPopularPosts(qty: number): Observable<Post[]> {
+    const endpoint = `${environment.apiRootUrl}/posts/popular/${qty}`;
+    return this.http.get<Post[]>(endpoint);
+  }
 }

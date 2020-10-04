@@ -24,10 +24,12 @@ import { HighlightsPostsComponent } from './home/components/highlights-posts/hig
 import { HomeComponent } from './home/home.component';
 import { MainPostComponent } from './home/components/main-post/main-post.component';
 import { PostSidebarComponent } from './home/components/post-sidebar/post-sidebar.component';
-import { AuthorProfileSidebarComponent } from './home/components/author-profile-sidebar/author-profile-sidebar.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { loginReducer } from './core/login/login.reducer';
+import { BloggerProfileComponent } from './home/components/blogger-profile/blogger-profile.component';
+import { authorsReducer } from './core/authors/authors.reducer';
+import { AuthorsEffects } from './core/authors/authors.effects';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -41,8 +43,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     MainPostComponent,
     PostSidebarComponent,
-    AuthorProfileSidebarComponent,
-    LoginComponent
+    LoginComponent,
+    BloggerProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -65,11 +67,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     StoreModule.forRoot({
       post: postsReducer,
-      user: loginReducer
+      user: loginReducer,
+      authors: authorsReducer
     }),
     EffectsModule.forRoot([
       PostsEffects,
-      LoginEffects
+      LoginEffects,
+      AuthorsEffects
     ]),
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({

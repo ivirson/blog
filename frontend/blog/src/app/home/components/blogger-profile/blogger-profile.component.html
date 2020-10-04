@@ -1,0 +1,11 @@
+<div class="author-container">
+  <div class="author-image"
+       [ngStyle]="{'background-image': 'url(' + author.image + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover'}">
+  </div>
+  <div class="author-info">
+    <div class="author-name color-black">{{ author.name }} {{ author.surName }}</div>
+    <div class="post-author author-title">{{ author.title }}</div>
+    <div class="author-biography">{{ authorBiography }}</div>
+    <button mat-flat-button class="btn-dark">{{ 'HOME.AUTHOR-SEE-MORE' | translate }}</button>
+  </div>
+</div>

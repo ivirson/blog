@@ -10,10 +10,7 @@
         <mat-label>{{ 'LOGIN.PASSWORD-INPUT' | translate }}</mat-label>
         <input matInput formControlName="password" autocomplete="off" type="password">
       </mat-form-field>
-      <button mat-flat-button class="btn-submit">{{ 'LOGIN.SUBMIT' | translate }}</button>
-      <div *ngIf="error$">
-        <app-alert-message [error]="error$"></app-alert-message>
-      </div>
+      <button mat-flat-button class="btn-dark">{{ 'LOGIN.SUBMIT' | translate }}</button>
     </form>
   </div>
 </div>
