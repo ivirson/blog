@@ -7,7 +7,9 @@ export enum ActionTypes {
     GET_LATEST_POSTS = '[POSTS] Get Latest Posts',
     GET_LATEST_POSTS_SUCCESS = '[POSTS] Get Latest Posts Success',
     GET_HIGHLIGHT_POSTS = '[POSTS] Get Highlight Posts',
-    GET_HIGHLIGHT_POSTS_SUCCESS = '[POSTS] Get Highlight Posts Success'
+    GET_HIGHLIGHT_POSTS_SUCCESS = '[POSTS] Get Highlight Posts Success',
+    GET_POPULAR_POSTS = '[POSTS] Get Popular Posts',
+    GET_POPULAR_POSTS_SUCCESS = '[POSTS] Get Popular Posts Success'
 }
 
 export class GetPosts implements Action {
@@ -45,6 +47,16 @@ export class GetHighlightPostsSuccess implements Action {
     constructor(public payload: any) {}
 }
 
+export class GetPopularPosts implements Action {
+    readonly type = ActionTypes.GET_POPULAR_POSTS;
+    constructor(public payload?: any) {}
+}
+
+export class GetPopularPostsSuccess implements Action {
+    readonly type = ActionTypes.GET_POPULAR_POSTS_SUCCESS;
+    constructor(public payload: any) {}
+}
+
 export type PostsActions =
     | GetPosts
     | GetPostsSuccess
@@ -52,4 +64,6 @@ export type PostsActions =
     | GetLatestPosts
     | GetLatestPostsSuccess
     | GetHighlightPosts
-    | GetHighlightPostsSuccess;
+    | GetHighlightPostsSuccess
+    | GetPopularPosts
+    | GetPopularPostsSuccess;

@@ -26,11 +26,20 @@
           </div>
         </div>
       </div>
+
+      <!-- Sidebar -->
       <div class="col-4">
         <div class="row right-side-container">
           <div class="col-md-4"></div>
-          <div class="col-md-8" style="border: 1px solid black;">
+          <div class="col-md-8 p-0">
+            <div class="" *ngFor="let item of authors">
+              <app-blogger-profile [author]="item"></app-blogger-profile>
+            </div>
 
+            <span class="post-title color-black">{{ 'HOME.POPULAR-POSTS' | translate }}</span>
+            <div class="post-sidebar" *ngFor="let item of popularPosts" >
+              <app-post-sidebar [post]="item"></app-post-sidebar>
+            </div>
           </div>
         </div>
       </div>

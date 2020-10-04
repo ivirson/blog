@@ -5,13 +5,15 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import * as actions from './login.actions';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Injectable()
 export class LoginEffects {
   constructor(
     private actions$: Actions,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) {}
 
   @Effect()
@@ -30,10 +32,22 @@ export class LoginEffects {
   );
 
   @Effect({ dispatch: false })
+  onSuccess = this.actions$.pipe(
+    ofType<actions.SubmitLoginSuccess>(actions.ActionTypes.SUBMIT_LOGIN_SUCCESS),
+    tap(
+      () => {
+        this.router.navigate(['home']);
+      }
+    )
+  );
+
+  @Effect({ dispatch: false })
   onError = this.actions$.pipe(
     ofType<actions.SubmitLoginError>(actions.ActionTypes.SUBMIT_LOGIN_ERROR),
     tap(
-      err => console.log(err)
+      (err) => {
+        this.router.navigate(['login']);
+      }
     )
   );
 }

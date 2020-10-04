@@ -51,4 +51,17 @@ export class PostsEffects {
       )
     )
   );
+
+  @Effect()
+  getPopularPostsAction = this.actions$.pipe(
+    ofType<actions.GetPopularPosts>(actions.ActionTypes.GET_POPULAR_POSTS),
+    switchMap(action =>
+      this.postsService.getPopularPosts(action.payload).pipe(
+        switchMap((response: any) => {
+          return of(new actions.GetPopularPostsSuccess(response));
+        }),
+        catchError(err => of(new actions.GetPostsError(err)))
+      )
+    )
+  );
 }

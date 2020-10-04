@@ -25,7 +25,7 @@ body {
   .post-title {
       font-size: .9375rem;
       font-weight: bold;
-      color: var(--white)
+      color: var(--white);
   }
 
   .post-author {
@@ -36,4 +36,11 @@ body {
 
   .color-black {
     color: var(--black);
+  }
+
+  .btn-dark {
+    background-color: var(--black-dark);
+    color: var(--white);
+    height: 3rem;
+    width: 100%;
   }

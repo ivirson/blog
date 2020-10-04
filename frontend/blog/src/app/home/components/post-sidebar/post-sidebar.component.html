@@ -1,3 +1,10 @@
-<p>
-  post-sidebar works!
-</p>
+<div class="post-container">
+  <div class="post-image"
+       [ngStyle]="{'background-image': 'url(' + post?.image + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover'}">
+    <app-badge [content]="post.category?.name" [color]="post.category?.color"></app-badge>
+  </div>
+  <div class="post-info">
+    <div class="post-title color-black">{{ post.title }}</div>
+    <div class="post-author">{{ post.user.name }} {{ post.user.surName }} - {{ post.date | date: 'longDate' }}</div>
+  </div>
+</div>

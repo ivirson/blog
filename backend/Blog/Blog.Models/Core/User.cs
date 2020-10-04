@@ -20,6 +20,8 @@ namespace Blog.Models.Core
         public List<PostLike> PostLikes { get; set; }
         public string Role { get; set; }
         public string Image { get; set; }
+        public string Biography { get; set; }
+        public string Title { get; set; }
         public bool Active { get; set; }
     }
 }

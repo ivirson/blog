@@ -18,6 +18,11 @@ export const selectHighlightPosts = createSelector(
   state => state.highlightPosts
 );
 
+export const selectPopularPosts = createSelector(
+  postsSelector,
+  state => state.popularPosts
+);
+
 export const selectPostsError = createSelector(
     postsSelector,
     state => state.error

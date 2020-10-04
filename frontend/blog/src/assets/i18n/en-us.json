@@ -21,5 +21,9 @@
     "ITEM3": "Article",
     "ITEM4": "Contact",
     "ITEM5": "Purchase"
+  },
+  "HOME": {
+    "POPULAR-POSTS": "Popular posts",
+    "AUTHOR-SEE-MORE": "Continue reading"
   }
 }

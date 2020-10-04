@@ -34,6 +34,24 @@ namespace Blog.API.Controllers
         }
 
         /// <summary>
+        /// Returns a list of users of the Blog application
+        /// </summary>
+        /// <returns>List of users objects</returns>
+        // GET: api/users
+        [HttpGet("authors")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<User>>> GetAuthors()
+        {
+            var authors =  await _context.Users.Where(x => x.Active).OrderBy(x => x.Name).ToListAsync();
+            foreach (var item in authors)
+            {
+                item.Password = "";
+                item.Role = "";
+            }
+            return authors;
+        }
+
+        /// <summary>
         /// Returns a user by id
         /// </summary>
         /// <param name="id">user id</param>
