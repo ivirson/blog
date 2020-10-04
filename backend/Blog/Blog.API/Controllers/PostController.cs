@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Blog.API.Data;
 using Blog.Models.Post;
+using Blog.Models.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -27,18 +28,20 @@ namespace Blog.API.Controllers
         // GET: api/posts
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<Post>>> GetPosts()
+        public async Task<ActionResult<IEnumerable<Post>>> GetPosts([FromQuery] QueryParameters parameters)
         {
             var posts = await _context.Posts.Where(x => x.Active)
                 .Include(x => x.User)
                 .Include(x => x.Category)
+                .Skip((parameters.PageNumber - 1) * parameters.PageSize)
+                .Take(parameters.PageSize)
                 .OrderByDescending(x => x.Date).ToListAsync();
 
             return posts;
         }
 
         /// <summary>
-        /// Returns a list of 3 latest posts of the Blog application
+        /// Returns a list of latest posts of the Blog application
         /// </summary>
         /// <param name="qty">posts quantity</param>
         /// <returns>List of posts objects</returns>
@@ -51,6 +54,24 @@ namespace Blog.API.Controllers
                 .Include(x => x.User)
                 .Include(x => x.Category)
                 .OrderByDescending(x => x.Date).Take(qty).ToListAsync();
+
+            return posts;
+        }
+
+        /// <summary>
+        /// Returns a list of 3 popular posts of the Blog application
+        /// </summary>
+        /// <param name="qty">posts quantity</param>
+        /// <returns>List of posts objects</returns>
+        // GET: api/posts/popular/5
+        [HttpGet("popular/{qty}")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<Post>>> GetPopularPosts(int qty)
+        {
+            var posts = await _context.Posts.Where(x => x.Active)
+                .Include(x => x.User)
+                .Include(x => x.Category)
+                .OrderByDescending(x => x.Likes.Count >= 0).Take(qty).ToListAsync();
 
             return posts;
         }

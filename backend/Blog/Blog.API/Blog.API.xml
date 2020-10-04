@@ -49,7 +49,7 @@
             2 - Error
             </returns>
         </member>
-        <member name="M:Blog.API.Controllers.PostController.GetPosts">
+        <member name="M:Blog.API.Controllers.PostController.GetPosts(Blog.Models.Utils.QueryParameters)">
             <summary>
             Returns a list of posts of the Blog application
             </summary>
@@ -57,7 +57,14 @@
         </member>
         <member name="M:Blog.API.Controllers.PostController.GetLatestPosts(System.Int32)">
             <summary>
-            Returns a list of 3 latest posts of the Blog application
+            Returns a list of latest posts of the Blog application
+            </summary>
+            <param name="qty">posts quantity</param>
+            <returns>List of posts objects</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.PostController.GetPopularPosts(System.Int32)">
+            <summary>
+            Returns a list of 3 popular posts of the Blog application
             </summary>
             <param name="qty">posts quantity</param>
             <returns>List of posts objects</returns>
@@ -108,6 +115,12 @@
             <returns>post after updating likes qty</returns>
         </member>
         <member name="M:Blog.API.Controllers.UserController.GetUsers">
+            <summary>
+            Returns a list of users of the Blog application
+            </summary>
+            <returns>List of users objects</returns>
+        </member>
+        <member name="M:Blog.API.Controllers.UserController.GetAuthors">
             <summary>
             Returns a list of users of the Blog application
             </summary>

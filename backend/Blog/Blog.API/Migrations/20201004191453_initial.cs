@@ -36,6 +36,8 @@ namespace Blog.API.Migrations
                     Password = table.Column<string>(nullable: true),
                     Role = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
+                    Biography = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
                     Active = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
