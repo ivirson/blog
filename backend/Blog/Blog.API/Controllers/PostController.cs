@@ -7,6 +7,7 @@ using Blog.Models.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Blog.API.Controllers
 {
@@ -24,20 +25,29 @@ namespace Blog.API.Controllers
         /// <summary>
         /// Returns a list of posts of the Blog application
         /// </summary>
+        /// <param name="parameters">Pagination parameters</param>
         /// <returns>List of posts objects</returns>
-        // GET: api/posts
+        // GET: api/posts/?pageNumber=2&pageSize=2
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Post>>> GetPosts([FromQuery] QueryParameters parameters)
         {
-            var posts = await _context.Posts.Where(x => x.Active)
-                .Include(x => x.User)
-                .Include(x => x.Category)
-                .Skip((parameters.PageNumber - 1) * parameters.PageSize)
-                .Take(parameters.PageSize)
-                .OrderByDescending(x => x.Date).ToListAsync();
+            var posts = PagedList<Post>.ToPagedList(_context.Posts.OrderByDescending(p => p.Date),
+                                                    parameters.PageNumber,
+                                                    parameters.PageSize);
+            var metadata = new
+            {
+                posts.TotalCount,
+                posts.PageSize,
+                posts.CurrentPage,
+                posts.TotalPages,
+                posts.HasNext,
+                posts.HasPrevious
+            };
 
-            return posts;
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+
+            return Ok(posts);
         }
 
         /// <summary>
