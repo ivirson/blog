@@ -1,3 +1,4 @@
+import { PostsServerResponse } from './../models/posts-server-response.model';
 import { selectAuthors } from './../core/authors/authors.selectors';
 import { Post } from 'src/app/models/post.model';
 import { selectHighlightPosts, selectPopularPosts, selectPosts } from './../core/posts/posts.selectors';
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 import * as fromPosts from './../core/posts';
 import * as fromAuthors from './../core/authors';
 import { User } from '../models/user.model';
+import { Observable, of } from 'rxjs';
+import { delay, tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +22,9 @@ export class HomeComponent implements OnInit {
   public posts: Post[];
   public popularPosts: Post[];
   public authors: User[];
+  public page = 1;
+  public total: number;
+  public asyncPosts: Observable<Post[]>;
 
   constructor(
     private store$: Store<AppState>

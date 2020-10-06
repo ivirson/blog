@@ -49,11 +49,10 @@
             2 - Error
             </returns>
         </member>
-        <member name="M:Blog.API.Controllers.PostController.GetPosts(Blog.Models.Utils.QueryParameters)">
+        <member name="M:Blog.API.Controllers.PostController.GetPosts">
             <summary>
             Returns a list of posts of the Blog application
             </summary>
-            <param name="parameters">Pagination parameters</param>
             <returns>List of posts objects</returns>
         </member>
         <member name="M:Blog.API.Controllers.PostController.GetLatestPosts(System.Int32)">

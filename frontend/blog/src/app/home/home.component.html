@@ -21,8 +21,29 @@
     <div class="row">
       <div class="col-8">
         <div class="row">
-          <div class="col-12" *ngFor="let item of posts">
+          <div class="col-12" *ngFor="let item of posts | paginate: { itemsPerPage: 5, currentPage: page }">
             <app-main-post [post]="item"></app-main-post>
+          </div>
+          <div class="pagination-container">
+            <pagination-template #p="paginationApi" (pageChange)="page=$event">
+              <button class="pagination pagination-previous"
+                   [attr.disabled]="p.isFirstPage() ? 'disabled' : null"
+                   (click)="p.previous()">
+                <mat-icon>navigate_before</mat-icon>
+              </button>
+              <div class="pagination"
+                   *ngFor="let page of p.pages"
+                   (click)="p.setCurrent(page.value)"
+                   [ngClass]="{'current': p.getCurrent() === page.value}">
+                <span *ngIf="p.getCurrent() !== page.value">{{ page.label }}</span>
+                <div *ngIf="p.getCurrent() === page.value">{{ page.label }}</div>
+              </div>
+              <button class="pagination pagination-next"
+                   [attr.disabled]="p.isLastPage() ? 'disabled' : null"
+                   (click)="p.next()">
+                <mat-icon>navigate_next</mat-icon>
+              </button>
+            </pagination-template>
           </div>
         </div>
       </div>
