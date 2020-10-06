@@ -49,7 +49,7 @@
             2 - Error
             </returns>
         </member>
-        <member name="M:Blog.API.Controllers.PostController.GetPosts(Blog.Models.Utils.QueryParameters)">
+        <member name="M:Blog.API.Controllers.PostController.GetPosts">
             <summary>
             Returns a list of posts of the Blog application
             </summary>

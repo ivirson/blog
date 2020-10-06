@@ -1,3 +1,34 @@
 .right-side-container {
   padding-right: 1rem;
 }
+
+.pagination-container {
+  margin: 2rem 1rem;
+}
+
+.pagination {
+  display: inline-block;
+  margin: 0 .25rem;
+  border-radius: 3px;
+  padding: .6rem 1rem;
+  border: 1px solid var(--gray-light);
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.pagination:focus {
+  outline: none;
+}
+
+.pagination:hover {
+  background-color: var(--gray-light);
+}
+
+.pagination-previous, .pagination-next {
+  padding: .3rem .45rem;
+}
+
+.current {
+  background: var(--black);
+  color: var(--white);
+}

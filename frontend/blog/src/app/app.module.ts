@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { LoginEffects } from './core/login/login.effects';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -30,6 +31,7 @@ import { loginReducer } from './core/login/login.reducer';
 import { BloggerProfileComponent } from './home/components/blogger-profile/blogger-profile.component';
 import { authorsReducer } from './core/authors/authors.reducer';
 import { AuthorsEffects } from './core/authors/authors.effects';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -57,7 +59,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
+    MatIconModule,
     MatButtonModule,
+    NgxPaginationModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

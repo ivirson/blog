@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.API", "Blog.API\Blog.API.csproj", "{23F00D2D-C969-45B0-A892-9F96950AB1AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.API", "Blog.API\Blog.API.csproj", "{23F00D2D-C969-45B0-A892-9F96950AB1AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Models", "Blog.Models\Blog.Models.csproj", "{1F5CBC76-F718-4868-9DE2-15C62CD545C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Models", "Blog.Models\Blog.Models.csproj", "{1F5CBC76-F718-4868-9DE2-15C62CD545C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

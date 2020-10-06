@@ -3,10 +3,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Blog.API.Data;
 using Blog.Models.Post;
-using Blog.Models.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Blog.API.Controllers
 {
@@ -28,16 +28,14 @@ namespace Blog.API.Controllers
         // GET: api/posts
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<Post>>> GetPosts([FromQuery] QueryParameters parameters)
+        public async Task<ActionResult<IEnumerable<Post>>> GetPosts()
         {
             var posts = await _context.Posts.Where(x => x.Active)
                 .Include(x => x.User)
                 .Include(x => x.Category)
-                .Skip((parameters.PageNumber - 1) * parameters.PageSize)
-                .Take(parameters.PageSize)
                 .OrderByDescending(x => x.Date).ToListAsync();
 
-            return posts;
+            return Ok(posts);
         }
 
         /// <summary>
