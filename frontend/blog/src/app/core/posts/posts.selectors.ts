@@ -23,6 +23,11 @@ export const selectPopularPosts = createSelector(
   state => state.popularPosts
 );
 
+export const selectPostById = createSelector(
+  postsSelector,
+  state => state.post
+);
+
 export const selectPostsError = createSelector(
     postsSelector,
     state => state.error

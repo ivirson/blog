@@ -53,7 +53,9 @@
         <div class="row right-side-container">
           <div class="col-md-4"></div>
           <div class="col-md-8 p-0">
-            <div class="" *ngFor="let item of authors">
+
+            <span class="post-title color-black">{{ 'HOME.AUTHORS' | translate }}</span>
+            <div class="post-sidebar" *ngFor="let item of authors">
               <app-blogger-profile [author]="item"></app-blogger-profile>
             </div>
 
