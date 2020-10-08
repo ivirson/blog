@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="post-detail-image"
+     [ngStyle]="{
+                  'background-image': 'url(' + post?.image + ')',
+                  'background-repeat': 'no-repeat',
+                  'background-size': 'cover',
+                  'background-position': 'center'
+                }"></div>
+
+<div class="container">
+  <div class="post-info">
+    <div class="post-title">{{ post?.title }}</div>
+    <div class="post-subtitle">{{ post?.subtitle }}</div>
+    <div class="post-author">{{ post?.user?.name }} {{ post?.user?.surName }} - {{ post?.date | date: 'longDate' }}</div>
+  </div>
+
+  <div class="post-content">{{ post?.content }}</div>
+</div>
+<app-footer></app-footer>

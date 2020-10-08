@@ -84,7 +84,10 @@ namespace Blog.API.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<Post>> GetPost(int id)
         {
-            var post = await _context.Posts.FindAsync(id);
+            var post = await _context.Posts
+                .Include(x => x.User)
+                .Include(x => x.Category)
+                .FirstOrDefaultAsync(p => p.Id == id);
 
             if (post == null || !post.Active)
             {

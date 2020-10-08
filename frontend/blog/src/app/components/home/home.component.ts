@@ -1,13 +1,14 @@
-import { selectAuthors } from './../core/authors/authors.selectors';
+import { Router } from '@angular/router';
+import { selectAuthors } from './../../core/authors/authors.selectors';
+import { selectPosts, selectHighlightPosts, selectPopularPosts } from './../../core/posts/posts.selectors';
+import { AppState } from './../../core/index';
 import { Post } from 'src/app/models/post.model';
-import { selectHighlightPosts, selectPopularPosts, selectPosts } from './../core/posts/posts.selectors';
-import { AppState } from './../core/index';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
-import * as fromPosts from './../core/posts';
-import * as fromAuthors from './../core/authors';
-import { User } from '../models/user.model';
+import * as fromAuthors from './../../core/authors';
+import * as fromPosts from './../../core/posts';
 import { Observable } from 'rxjs';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,8 @@ export class HomeComponent implements OnInit {
   public asyncPosts: Observable<Post[]>;
 
   constructor(
-    private store$: Store<AppState>
+    private store$: Store<AppState>,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -33,6 +35,10 @@ export class HomeComponent implements OnInit {
     this.getHighlightPosts();
     this.getPopularPosts();
     this.getAuthors();
+  }
+
+  public getPostDetail(id: number) {
+    this.router.navigate(['post', id]);
   }
 
   public getPosts() {
