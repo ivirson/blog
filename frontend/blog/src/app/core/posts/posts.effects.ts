@@ -64,4 +64,17 @@ export class PostsEffects {
       )
     )
   );
+
+  @Effect()
+  getPostByIdAction = this.actions$.pipe(
+    ofType<actions.GetPostById>(actions.ActionTypes.GET_POST_BY_ID),
+    switchMap(action =>
+      this.postsService.getPostById(action.payload).pipe(
+        switchMap((response: any) => {
+          return of(new actions.GetPostByIdSuccess(response));
+        }),
+        catchError(err => of(new actions.GetPostsError(err)))
+      )
+    )
+  );
 }

@@ -1,5 +1,5 @@
-import { User } from './../../../models/user.model';
-import { AppState } from './../../../core/index';
+import { User } from './../../../../models/user.model';
+import { AppState } from './../../../../core/index';
 import { Store } from '@ngrx/store';
 import { Component, Input, OnInit } from '@angular/core';
 

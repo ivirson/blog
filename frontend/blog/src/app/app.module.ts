@@ -10,7 +10,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostsComponent } from './posts/posts.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,17 +20,18 @@ import { StoreModule } from '@ngrx/store';
 import { postsReducer } from './core/posts/posts.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { HighlightsPostsComponent } from './home/components/highlights-posts/highlights-posts.component';
-import { HomeComponent } from './home/home.component';
-import { MainPostComponent } from './home/components/main-post/main-post.component';
-import { PostSidebarComponent } from './home/components/post-sidebar/post-sidebar.component';
-import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { loginReducer } from './core/login/login.reducer';
-import { BloggerProfileComponent } from './home/components/blogger-profile/blogger-profile.component';
 import { authorsReducer } from './core/authors/authors.reducer';
 import { AuthorsEffects } from './core/authors/authors.effects';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PostComponent } from './components/post/post.component';
+import { HighlightsPostsComponent } from './components/home/components/highlights-posts/highlights-posts.component';
+import { HomeComponent } from './components/home/home.component';
+import { MainPostComponent } from './components/home/components/main-post/main-post.component';
+import { PostSidebarComponent } from './components/home/components/post-sidebar/post-sidebar.component';
+import { LoginComponent } from './components/login/login.component';
+import { BloggerProfileComponent } from './components/home/components/blogger-profile/blogger-profile.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -40,18 +40,18 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent,
     HighlightsPostsComponent,
     HomeComponent,
     MainPostComponent,
     PostSidebarComponent,
     LoginComponent,
-    BloggerProfileComponent
+    BloggerProfileComponent,
+    PostComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     CommonModule,
-    AppRoutingModule,
     HttpClientModule,
     SharedModule,
     BrowserAnimationsModule,
@@ -85,6 +85,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       logOnly: environment.production, // Restrict extension to log-only mode
     })
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

@@ -1,0 +1,38 @@
+.post-detail-image {
+  height: 15rem;
+  width: 100%;
+}
+
+.post-info {
+  margin-bottom: 2rem;
+}
+
+.post-title {
+  display: flex;
+  justify-content: center;
+  color: var(--black);
+  font-size: 2rem;
+  margin: 2rem 0 1rem 0;
+}
+
+.post-subtitle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: .5rem;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.post-author {
+  display: flex;
+  justify-content: center;
+  color: var(--gray-dark);
+}
+
+.post-content {
+  width: 40rem;
+  margin: auto;
+  font-size: 1.1rem;
+  line-height: 2rem;
+  margin-bottom: 3rem;
+}

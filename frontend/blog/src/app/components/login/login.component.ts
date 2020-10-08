@@ -1,13 +1,8 @@
-import { selectLoginError } from './../core/login/login.selectors';
-import { User } from './../models/user.model';
-import { AppState } from './../core/index';
+import { AppState } from './../../core/index';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import * as fromLogin from './../core/login';
-import { selectUser } from '../core/login/login.selectors';
-import { first } from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
+import * as fromLogin from './../../core/login';
 
 @Component({
   selector: 'app-login',

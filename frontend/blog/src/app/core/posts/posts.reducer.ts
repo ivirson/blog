@@ -6,6 +6,7 @@ export interface PostsState {
     latestPosts: Post[] | null;
     highlightPosts: Post[] | null;
     popularPosts: Post[] | null;
+    post: Post | null;
     loading: boolean;
     error: any;
 }
@@ -15,6 +16,7 @@ export const postsState: PostsState = {
     latestPosts: null,
     highlightPosts: null,
     popularPosts: null,
+    post: null,
     loading: false,
     error: null
 };
@@ -95,6 +97,23 @@ export function postsReducer(state = postsState, action: PostsActions) {
               ...state,
               loading: false,
               popularPosts: action.payload
+            };
+        }
+
+        case ActionTypes.GET_POST_BY_ID:
+        {
+            return {
+              ...state,
+              loading: true
+            };
+        }
+
+        case ActionTypes.GET_POST_BY_ID_SUCCESS:
+        {
+            return {
+              ...state,
+              loading: false,
+              post: action.payload
             };
         }
 

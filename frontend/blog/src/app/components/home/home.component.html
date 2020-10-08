@@ -21,7 +21,9 @@
     <div class="row">
       <div class="col-8">
         <div class="row">
-          <div class="col-12" *ngFor="let item of posts | paginate: { itemsPerPage: 5, currentPage: page }">
+          <div class="col-12 post"
+               (click)="getPostDetail(item.id)"
+               *ngFor="let item of posts | paginate: { itemsPerPage: 5, currentPage: page }">
             <app-main-post [post]="item"></app-main-post>
           </div>
           <div class="pagination-container">
@@ -53,7 +55,9 @@
         <div class="row right-side-container">
           <div class="col-md-4"></div>
           <div class="col-md-8 p-0">
-            <div class="" *ngFor="let item of authors">
+
+            <span class="post-title color-black">{{ 'HOME.AUTHORS' | translate }}</span>
+            <div class="post-sidebar" *ngFor="let item of authors">
               <app-blogger-profile [author]="item"></app-blogger-profile>
             </div>
 
