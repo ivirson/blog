@@ -1,8 +1,8 @@
-import { User } from '../../models/user.model';
+import { AuthUser } from './../../models/auth-user.model';
 import { ActionTypes, LoginActions } from './login.actions';
 
 export interface LoginState {
-    user: User | null;
+    user: AuthUser | null;
     loading: boolean;
     error: any;
 }
