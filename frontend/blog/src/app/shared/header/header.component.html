@@ -6,7 +6,7 @@
           <img class="logo" src="./assets/img/logo-white.png" alt="">
         </span>
       </div>
-      <div class="col-md-7 d-flex justify-content-center p-0">
+      <div class="col-md-6 d-flex justify-content-center p-0">
         <app-menu-items></app-menu-items>
       </div>
       <div class="col-md-2 d-flex justify-content-end align-items-center p-0">
@@ -16,7 +16,7 @@
       </div>
       <div class="col-md-auto d-flex justify-content-end p-0">
         <button mat-button [matMenuTriggerFor]="menu">
-          <img class="country-flag" src="./assets/img/{{ defaultLang }}.png" alt="Brazil Flag">
+          <img class="country-flag" src="./assets/img/{{ defaultLang }}.png" alt="Country Flag">
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item class="lang-menu-item" (click)="changeLanguage('pt-br')">
@@ -25,6 +25,27 @@
           <button mat-menu-item class="lang-menu-item" (click)="changeLanguage('en-us')">
             <img class="country-flag" src="./assets/img/en-us.png" alt="USA Flag">English
           </button>
+        </mat-menu>
+      </div>
+      <div class="col-md-auto d-flex justify-content-end p-0">
+        <button mat-button [matMenuTriggerFor]="userMenu">
+          <mat-icon *ngIf="!user" class="profile-icon">account_circle</mat-icon>
+          <img *ngIf="user" class="user-image" src="{{user.user.image}}" alt="User Image">
+        </button>
+        <mat-menu #userMenu="matMenu">
+          <div *ngIf="user">
+            <button mat-menu-item class="lang-menu-item" (click)="handleRedirect('profile')">
+              {{ 'HEADER.PROFILE' | translate }}
+            </button>
+            <button mat-menu-item class="lang-menu-item" (click)="handleRedirect('admin')">
+              {{ 'HEADER.ADMIN' | translate }}
+            </button>
+          </div>
+          <div *ngIf="!user">
+            <button mat-menu-item class="lang-menu-item" (click)="handleRedirect('login')">
+              {{ 'HEADER.LOGIN' | translate }}
+            </button>
+          </div>
         </mat-menu>
       </div>
     </div>

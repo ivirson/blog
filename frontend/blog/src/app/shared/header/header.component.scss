@@ -1,16 +1,26 @@
 .header {
-    height: 90px;
-    background-color: var(--black-dark);
-    color: var(--white);
+  height: 90px;
+  background-color: var(--black-dark);
+  color: var(--white);
 }
 
 .country-flag {
-    width: 1.5rem;
-    height: auto;
-    margin-right: .5rem;
+  width: 1.5rem;
+  height: auto;
+  margin-right: .5rem;
+}
+
+.user-image {
+  border-radius: 50%;
+  width: 1.5rem;
+  height: auto;
+}
+
+.profile-icon {
+  color: var(--gray-light);
 }
 
 .lang-menu-item, app-menu-items {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }

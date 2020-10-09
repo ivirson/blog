@@ -32,6 +32,7 @@ import { MainPostComponent } from './components/home/components/main-post/main-p
 import { PostSidebarComponent } from './components/home/components/post-sidebar/post-sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { BloggerProfileComponent } from './components/home/components/blogger-profile/blogger-profile.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -46,7 +47,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PostSidebarComponent,
     LoginComponent,
     BloggerProfileComponent,
-    PostComponent
+    PostComponent,
+    AdminComponent
   ],
   imports: [
     AppRoutingModule,

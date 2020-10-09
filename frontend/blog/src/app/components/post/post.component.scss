@@ -7,12 +7,19 @@
   margin-bottom: 2rem;
 }
 
+.post-category {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
 .post-title {
   display: flex;
   justify-content: center;
   color: var(--black);
   font-size: 2rem;
-  margin: 2rem 0 1rem 0;
+  margin-bottom: 1rem;
 }
 
 .post-subtitle {

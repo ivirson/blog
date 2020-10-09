@@ -5,6 +5,11 @@
     "PASSWORD-INPUT": "Password",
     "SUBMIT": "Log In"
   },
+  "HEADER": {
+    "PROFILE": "Profile",
+    "LOGIN": "Log In",
+    "ADMIN": "Administrator"
+  },
   "FOOTER": {
     "RECENT-POSTS": "Recent posts",
     "NEWSLETTER": "Newsletter",
